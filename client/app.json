@@ -1,0 +1,34 @@
+{
+  "pages":[
+    "pages/logs/logs",
+    "pages/my/my",
+    "pages/index/index",
+    "pages/addCgi/addCgi"
+  ],
+  "window":{
+    "backgroundColor":"#e83e00",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#e83e00",
+    "navigationBarTitleText": "点餐青蛙",
+    "navigationBarTextStyle":"light"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#999999",
+    "selectedColor": "#e83e00",
+    "list": [
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "周边",
+        "iconPath": "image/list.png",
+        "selectedIconPath": "image/listing.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/mying.png"
+      }
+    ]
+  }
+}
