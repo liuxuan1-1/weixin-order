@@ -1,0 +1,81 @@
+<!--pages/logs/logs.wxml-->
+<view class="container">
+  <!--商家头部展示-->
+  <view class="res-head">
+    <view class="head-mess">
+      <image class="head-headimg" src="./home.jpg" />
+      <text class="head-name">Hello餐厅欢迎您</text>
+    </view>
+    <!--我感觉有一个boder好看： <view class="split" /> -->
+    <view class="head-active">
+      <text class="full-cut">满100减10</text>
+      <text class="more-active">等2个活动></text>
+    </view>
+  </view>
+  <!--点餐界面-->
+  <view class="res-body">
+    <view class="body-head">
+      <text class="cur">点菜</text>
+      <text>商家</text>
+    </view>
+    <swiper 
+      indicator-dots="{{false}}"
+      autoplay="{{false}}"
+      bindchange="changeSwipe"
+      current="{{swipeIndex}}"
+    >
+        <swiper-item>
+          <view class="body-order">
+            <scroll-view class="body-category" scroll-Y="{{true}}" style="height:740rpx;">
+              <view class="category-items">
+                <text class="cur">热销</text>
+                <view class="dash-split" />
+                <text>折扣</text>
+                <view class="dash-split" />
+                <text>热菜</text>
+                <view class="dash-split" />
+                <text>凉菜</text>
+                <view class="dash-split" />
+                <text>水和主食</text>
+                <view class="dash-split" />
+              </view>
+            </scroll-view>
+            <scroll-view class="body-items" style="height:740rpx;" scroll-Y="{{true}}">
+              <view class="items-head">
+                <text class="color-orange">|</text>
+                <text> 热销</text>
+              </view>
+              <view class="items-wrapper">
+                <view class="items-left">
+                  <image src="./chicken.jpg" />
+                  <view class="items-message">
+                    <text class="message-title">溜肉段</text>
+                    <text class="message-description">好吃</text>
+                    <text class="message-price">
+                      <text class="price-sale">¥100</text>
+                      <text class="price-origin">¥20</text>
+                    </text>
+                    <!-- 折扣冗余：<text class="message-discount">2.5折</text> -->
+                  </view>
+                </view>
+                <view class="items-right">
+                  <image src="./plus.png" />
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+          <view class="body-pay">
+            <image class="pay-cart" src="./cart.png" />
+            <text class="pay-all">¥200</text>
+            <text class="pay-pay">结算</text>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view class="body-details">
+            hello餐厅成立于1998年2月份
+          </view>
+        </swiper-item>
+    </swiper>
+
+  </view>
+</view>
