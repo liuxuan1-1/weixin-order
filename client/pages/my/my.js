@@ -5,21 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    logged: false,
-    userInfo: {},
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const logged = wx.getStorageSync('logged')
-    const userinfo = wx.getStorageSync('userInfo')
-    this.setData({
-      logged: logged ? logged : false,
-      userInfo: userinfo ? userinfo : {} ,
-    })
-    console.log(this.data.userinfo)
+  
   },
 
   /**

@@ -4,11 +4,11 @@
   position: relative;
 }
 
-.split {
+/* .split {满减头上的横线
   height: 2rpx;
   width: 100%;
   background: #ffffff;
-}
+} */
 
 .dash-split {
   border-top: 1px dashed #999999;
@@ -16,7 +16,7 @@
 }
 
 .color-orange {
-  color: #e83e00;
+  color: #576b95;
 }
 
 
@@ -24,13 +24,13 @@
 .res-head {
   padding: 0 32rpx;
   height: 200rpx;
-  background: #e83e00;
+  background: #576b95;/*欢迎*/
   position: relative;
 }
 
-.res-head .split {
+/* .res-head .split {满减头上线
   margin: 20rpx 0 10rpx 0;
-}
+} */
 
 .head-mess .head-headimg {
   width: 100rpx;
@@ -46,13 +46,20 @@
   font-size: 40rpx;
 }
 
-.head-active {
+.head-active {/*满减区,但是实体店一般很少满减*/
   display: flex;
   justify-content: space-between;
   font-size: 30rpx;
   color: #ffffff;
+  border: 1rpx solid #fcfcfc;
+  margin-top: 22rpx;
 }
-
+.head-active .full-cut{
+  margin-left: 7rpx;
+}
+.head-active .more-active{
+  margin-right: 7rpx;
+}
 
 /* 商家点餐展示 */
 
@@ -79,7 +86,7 @@
 .body-head .cur::after {
   width: 100%;
   height: 2rpx;
-  background-color: #e83e00;
+  background: #576b95;
   display: block;
   content: "";
 }
@@ -112,7 +119,7 @@ swiper {
   width: 600rpx;
   box-sizing: border-box;
   display: inline-block;
-  padding: 20rpx 20rpx;
+  padding: 0 20rpx 0 20rpx;
 }
 
 
@@ -138,22 +145,29 @@ swiper {
   height: 50rpx;
   line-height: 50rpx;
   font-size: 25rpx;
-}
-
-.items-head .color-orange {
-  font-size: 20rpx;
-}
-
-.items-wrapper {
-  height: 200rpx;
-  background: #f2f2f2;
   position: relative;
 }
 
-.items-left image {
+.items-head .color-orange {
+  position: absolute;
+  top:0;
+  font-size: 20rpx;
+ 
+}
+.items-head .orange-text{
+margin-left: 8rpx;
+
+}
+.items-wrapper {
+  height: 200rpx;
+  /*background: #f2f2f2;/*后期建议是白色*/
+  position: relative;
+}
+.items-left image {/*不居中是为了图片上方和折扣上方对齐*/
   width: 120rpx;
   height: 120rpx;
   display: inline-block;
+  margin-top: 22rpx;
 }
 
 .items-message {
@@ -161,11 +175,13 @@ swiper {
   vertical-align: top;
   margin-left: 20rpx;
   line-height: 45rpx;
+  position: relative;
 }
 
 .items-message .message-title {
   display: block;
   font-size: 35rpx;
+  margin-top: 22rpx;
 }
 
 .items-message .message-description {
@@ -179,34 +195,36 @@ swiper {
 }
 
 .message-price .price-sale {
-  color: #e83e00;
-  font-size: 35rpx;
+  color: #576b95;
+  font-size: 35rpx;/*40*/
 }
 
 .message-price .price-origin {
   padding-left: 10rpx;
   color: #999999;
-  font-size: 30rpx;
+  font-size: 30rpx;/*原价*/
   text-decoration: line-through;
 }
 
 .items-left .message-discount {
-  border: 1px solid #e83e00;
-  font-size: 25rpx;
-  padding: 0 5rpx;
-  color: #e83e00;
+  /* border: 1px solid #e83e00; 我认为不需要折扣换算，有原价现价就行*/
+  font-size: 33rpx;
+  color: #576b95;
+  position: absolute;
+   top: 22rpx;
+   right: -57rpx;
+
 }
 
 .items-right {
-  position: absolute;
-  right: 30rpx;
-  top: 50%;
-  margin-top: -30rpx;
+   position: absolute; 
+   top: 50%;
+   right: 20rpx;
 }
 
 .items-right image{
-  width: 60rpx;
-  height: 60rpx;
+  width: 40rpx;
+  height: 40rpx;
   display: inline-block;
 }
 
@@ -216,8 +234,9 @@ swiper {
 /* 底部支付样式 */
 
 .body-pay {
-  background: #e83e00;
+  background:#576b95;/*待#db5a6b定*/
   position: absolute;
+   z-index: 1;
   bottom: 0;
   right: 0;
   left: 0;
@@ -227,6 +246,30 @@ swiper {
 
 .body-pay image {
   display: inline-block;
-  width: 81rpx;
-  height: 81rpx;
+  width: 100rpx;
+  height: 100rpx;
+  margin-left:21rpx;
+  margin-top: -33rpx;
+  border: 8rpx solid rgba(51,51,51,0.5);  
+  border-radius: 50%;
+  background-color: #576b95;
+ 
+}
+.body-pay .pay-all {
+  margin-left:37rpx; 
+  position: absolute;
+  top: 50%;
+  margin-top: -20rpx;
+}
+.body-pay .pay-pay{
+  display: inline-block;
+  height: 100rpx;
+  width: 200rpx;
+  position: absolute;
+  right: 0rpx;
+  line-height: 100rpx;
+  text-align: center;
+  /* top: 50%;  */
+ 
+  background-color: #304161;
 }
