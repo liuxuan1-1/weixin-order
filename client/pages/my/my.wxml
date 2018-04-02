@@ -1,2 +1,21 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="container">
+  <view class="userinfo">
+    <image 
+      class="userinfo-avatar" 
+      src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}"
+      background-size="cover" />
+    <text class="userinfo-nickname">{{nickName}}</text>
+  </view>
+    <view class="list">
+      <view class="usermotto" data-type='lists'>
+         <text class="user-motto">订单列表</text>
+         <text>></text>
+      </view>
+      <view class="usermotto" data-type='article'>
+         <text class="user-motto">关于我们</text>
+         <text>></text>
+      </view>
+    </view>
+</view>
+

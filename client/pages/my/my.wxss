@@ -1,1 +1,65 @@
 /* pages/my/my.wxss */
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60rpx;
+  background-color: #e83e00;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, .2);
+}
+
+.userinfo-nickname {
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.app {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+}
+
+.app image {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.list {
+  margin-top: 30rpx;
+}
+
+.split {
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 2rpx;
+}
+
+.usermotto {
+  padding: 25rpx;
+  background-color: #fff;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.color-gray {
+  color: #666;
+}

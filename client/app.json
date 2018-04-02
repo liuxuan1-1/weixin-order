@@ -1,8 +1,8 @@
 {
   "pages":[
     "pages/home/home",
-    "pages/my/my",
     "pages/index/index",
+    "pages/my/my",
     "pages/addCgi/addCgi"
   ],
   "window":{

@@ -1,4 +1,4 @@
-/* pages/logs/logs.wxss */
+/* pages/homes/homes.wxss */
 
 .container {
   position: relative;

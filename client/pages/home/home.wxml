@@ -1,4 +1,4 @@
-<!--pages/logs/logs.wxml-->
+<!--pages/homes/homes.wxml-->
 <view class="container">
   <!--商家头部展示-->
   <view class="res-head">
@@ -14,9 +14,9 @@
   </view>
   <!--点餐界面-->
   <view class="res-body">
-    <view class="body-head">
-      <text class="cur">点菜</text>
-      <text>商家</text>
+    <view class="body-head" bindtap="changeSwipeHead">
+      <text data-index='0' class="{{swipeIndex === 0 ? 'cur' : ''}}">点菜</text>
+      <text data-index='1' class="{{swipeIndex === 1 ? 'cur' : ''}}">商家</text>
     </view>
     <swiper 
       indicator-dots="{{false}}"
