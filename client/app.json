@@ -19,7 +19,7 @@
     "list": [
       {
         "pagePath": "pages/logs/logs",
-        "text": "周边",
+        "text": "首页",
         "iconPath": "image/list.png",
         "selectedIconPath": "image/listing.png"
       },
