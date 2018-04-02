@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/logs/logs",
+    "pages/home/home",
     "pages/my/my",
     "pages/index/index",
     "pages/addCgi/addCgi"
@@ -18,7 +18,7 @@
     "selectedColor": "#e83e00",
     "list": [
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "image/list.png",
         "selectedIconPath": "image/listing.png"
