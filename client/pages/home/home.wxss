@@ -1,5 +1,4 @@
 /* pages/homes/homes.wxss */
-
 .container {
   position: relative;
 }
@@ -237,7 +236,7 @@ margin-left: 8rpx;
 .body-pay {
   background:#576b95;/*待#db5a6b定*/
   position: absolute;
-   z-index: 1;
+  z-index: 1;
   bottom: 0;
   right: 0;
   left: 0;
@@ -271,6 +270,58 @@ margin-left: 8rpx;
   line-height: 100rpx;
   text-align: center;
   /* top: 50%;  */
- 
   background-color: #304161;
+}
+
+
+
+
+
+/* 商家卡片样式 */
+
+.body-details {
+  background: #f2f2f2;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+
+.body-details image {
+  display: inline-block;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.details-introduction,
+.details-address-phone,
+.details-active {
+  position: relative;
+  background: #ffffff;
+  padding: 0 20rpx;
+  margin-bottom: 30rpx;
+  min-height: 50rpx;
+}
+
+.details-introduction image,
+.details-address-phone image,
+.details-active image {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.details-introduction .introduction,
+.details-address-phone .address,
+.details-active .active {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 68rpx;
+}
+
+.details-address-phone .phone {
+  right: 20rpx;
+}
+
+.details-address-phone .address {
+  margin-right: 68rpx;
 }

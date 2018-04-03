@@ -11,7 +11,7 @@ Page({
   data: {
     userInfo: {},
     logged: false,
-    swipeIndex: 0,
+    swipeIndex: 1,
   },
 
   // 滑动卡片
@@ -32,6 +32,14 @@ Page({
       })
     }
   },
+
+  // 打电话
+  callphone: function () {
+    wx.makePhoneCall({
+      phoneNumber: '123456789',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

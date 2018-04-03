@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 60rpx;
-  background-color: #e83e00;
+  background-color: #576b95;
 }
 
 .userinfo-avatar {

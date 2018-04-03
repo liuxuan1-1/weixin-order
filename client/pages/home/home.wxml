@@ -72,7 +72,23 @@
         </swiper-item>
         <swiper-item>
           <view class="body-details">
-            hello餐厅成立于1998年2月份
+            <view class="details-introduction">
+              <image src="./details-home.png" />
+              <view class="introduction">
+                商家简介: hello餐厅成立于1998年2月份, hello餐厅成立于1998年2月份, hello餐厅成立于1998年2月份 
+              </view>
+            </view>
+            <view class="details-address-phone">
+              <image src="./details-address.png" />
+              <view class="address">
+                黑龙江省哈尔滨市南岗区学府路74号
+              </view>
+              <image class="phone" src="./phone.png" bindtap="callphone" /> 
+            </view>
+            <view class="details-active">
+              <image src="./details-active.png" />
+              <view class="active">满100减10</view>
+            </view>
           </view>
         </swiper-item>
     </swiper>
