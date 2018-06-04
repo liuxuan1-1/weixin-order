@@ -44,71 +44,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (this.data.logged) return
-
-    util.showBusy('正在登录')
-    var that = this
-
-    // 调用登录接口
-    qcloud.login({
-      success(result) {
-        if (result) {
-          util.showSuccess('登录成功')
-          that.setData({
-            userInfo: result,
-            logged: true
-          })
-          wx.setStorage({
-            key: 'userInfo',
-            data: result,
-          })
-
-          wx.setStorage({
-            key: 'logged',
-            data: true,
-          })
-        } else {
-          // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
-          qcloud.request({
-            url: config.service.requestUrl,
-            login: true,
-            success(result) {
-              util.showSuccess('登录成功')
-              that.setData({
-                userInfo: result.data.data,
-                logged: true
-              })
-              wx.setStorage({
-                key: 'userInfo',
-                data: result.data.data,
-              })
-              wx.setStorage({
-                key: 'logged',
-                data: true,
-              })
-            },
-
-            fail(error) {
-              util.showModel('请求失败', error)
-              console.log('request fail', error)
-              wx.setStorage({
-                key: 'logged',
-                data: false,
-              })
-            }
+    if (wx.getStorageSync('logged')) {
+      const userInfo = wx.getStorageSync('userInfo')
+      this.setData({
+        logged: true,
+        userInfo: userInfo,
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录再操作!!!',
+        confirm: function (res) {
+          wx.switchTab({
+            url: '/my'
           })
         }
-      },
-
-      fail(error) {
-        util.showModel('登录失败', '请重新登录')
-        console.log('登录失败', error)
-        wx.setStorage({
-          key: 'logged',
-          data: false,
-        })
-      }
-    })
+      })
+    }
   },
 
   /**
@@ -122,7 +74,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    const logged = wx.getStorageSync('logged')
+
+    if (logged) {
+      const userInfo = wx.getStorageSync('userInfo')
+      this.setData({
+        logged: logged ? logged : false,
+        userInfo: userInfo ? userInfo : {},
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录再操作!!!',
+        complete: function (res) {
+          wx.switchTab({
+            url: "../my/my"
+          })
+        }
+      })
+    }
   },
 
   /**

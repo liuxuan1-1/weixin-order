@@ -2,6 +2,7 @@
   "pages":[
     "pages/home/home",
     "pages/my/my",
+    "pages/about/about",
     "pages/index/index",
     "pages/addCgi/addCgi"
   ],

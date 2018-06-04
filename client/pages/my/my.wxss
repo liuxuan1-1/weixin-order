@@ -22,6 +22,14 @@
   box-shadow: 0 0 20rpx rgba(0, 0, 0, .2);
 }
 
+.userinfo-login {
+  margin: 20rpx;
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.1);
+}
+
 .userinfo-nickname {
   color: #fff;
   width: 100%;
