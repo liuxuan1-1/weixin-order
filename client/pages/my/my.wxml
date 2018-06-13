@@ -10,10 +10,10 @@
 
   </view>
     <view class="list">
-      <view class="usermotto" data-type='lists' wx:if="{{logged}}">
+      <!-- <view class="usermotto" data-type='lists' wx:if="{{logged}}">
          <text class="user-motto">订单列表</text>
          <text>></text>
-      </view>
+      </view> -->
       <view class="usermotto" data-type='article' bindtap='toAboutMyPage'>
          <text class="user-motto">关于我们</text>
          <text>></text>

@@ -9,7 +9,6 @@
     <view class="split" />
     <view class="head-active">
       <text>满100减10</text>
-      <text>等2个活动></text>
     </view>
   </view>
   <!--点餐界面-->
@@ -18,79 +17,101 @@
       <text data-index='0' class="{{swipeIndex === 0 ? 'cur' : ''}}">点菜</text>
       <text data-index='1' class="{{swipeIndex === 1 ? 'cur' : ''}}">商家</text>
     </view>
-    <swiper 
-      indicator-dots="{{false}}"
-      autoplay="{{false}}"
-      bindchange="changeSwipe"
-      current="{{swipeIndex}}"
-    >
-        <swiper-item>
-          <view class="body-order">
-            <scroll-view class="body-category" scroll-Y="{{true}}" style="height:740rpx;">
-              <view class="category-items">
-                <text class="cur">热销</text>
+    <swiper indicator-dots="{{false}}" autoplay="{{false}}" bindchange="changeSwipe" current="{{swipeIndex}}">
+
+      <swiper-item>
+        <view class="body-order">
+
+          <scroll-view class="body-category" scroll-Y="{{true}}" style="height:740rpx;">
+            <view class="category-items" bindtap='handlerClickFoodType'>
+              <block wx:for="{{foodType}}" wx:key="item.id">
+                <text class="{{foodTypeCur == index ? 'cur' : ''}}" data-index="{{item.id}}">{{item.typename}}</text>
                 <view class="dash-split" />
-                <text>折扣</text>
-                <view class="dash-split" />
-                <text>热菜</text>
-                <view class="dash-split" />
-                <text>凉菜</text>
-                <view class="dash-split" />
-                <text>水和主食</text>
-                <view class="dash-split" />
-              </view>
-            </scroll-view>
-            <scroll-view class="body-items" style="height:740rpx;" scroll-Y="{{true}}">
-              <view class="items-head">
-                <text class="color-orange">|</text>
-                <text> 热销</text>
-              </view>
+              </block>
+            </view>
+          </scroll-view>
+
+          <scroll-view class="body-items" style="height:740rpx;" scroll-Y="{{true}}">
+            <view class="items-head">
+              <text class="color-orange">|</text>
+              <text>{{foodType[foodTypeCur].typename}}</text>
+            </view>
+            <block wx:for="{{data[foodTypeCur].food}}" wx:key="{{index}}">
               <view class="items-wrapper">
                 <view class="items-left">
                   <image src="./chicken.jpg" />
                   <view class="items-message">
-                    <text class="message-title">溜肉段</text>
-                    <text class="message-description">好吃</text>
+                    <text class="message-title">{{item.foodname}}</text>
+                    <text class="message-description">{{item.description}}</text>
                     <text class="message-price">
-                      <text class="price-sale">¥100</text>
-                      <text class="price-origin">¥20</text>
+                      <text class="price-sale">¥{{item.price}}</text>
+                    <text class="price-origin">¥{{item.originprice}}</text>
                     </text>
-                    <text class="message-discount">2.5折</text>
+                    <!-- <text class="message-discount">2.5折</text> -->
                   </view>
                 </view>
-                <view class="items-right">
+                <view class="items-right" bindtap='handlerClickChoseFood' data-foodid="{{item.foodid}}">
                   <image src="./plus.png" />
                 </view>
               </view>
-            </scroll-view>
-          </view>
-          <view class="body-pay">
-            <image class="pay-cart" src="./cart.png" />
-            <text class="pay-all">¥200</text>
-            <text class="pay-pay">结算</text>
-          </view>
-        </swiper-item>
-        <swiper-item>
-          <view class="body-details">
-            <view class="details-introduction">
-              <image src="./details-home.png" />
-              <view class="introduction">
-                商家简介: hello餐厅成立于1998年2月份, hello餐厅成立于1998年2月份, hello餐厅成立于1998年2月份 
+            </block>
+
+          </scroll-view>
+        </view>
+        <view class='mask' hidden="{{!showcart}}"></view>
+
+        <view class="body-pay">
+
+           <image class="pay-cart" src="./cart.png" bindtap='handlerShowCart' />
+          <text class="pay-all">¥{{totalPrice}}</text>
+          <text class="pay-pay" bindtap='handlerPay'>结算</text>
+          <view class='pay-chosefood' hidden='{{!showcart}}'>
+            <block wx:if="{{choseFood.length !== 0}}">
+
+              <block wx:for="{{choseFood}}" wx:key="{{item.foodid}}">
+                <view class='cart-item' data-index="{{item.foodid}}">
+                    <text class='item-name'>{{item.name}}</text>
+                    <text class='item-price'>{{item.price}}元</text>
+                    <view class='item-group'>
+                      <button size="mini" bindtap='handlerItemPlus' data-index="{{item.foodid}}">+</button>
+                      <input class='item-counts' data-index="{{item.foodid}}" type="number" value="1" maxlength="2" value='{{item.nums}}'   bindinput="handlerInputChange" />
+                      <button size='mini' bindtap='handlerItemSubtract' data-index="{{item.foodid}}">-</button>
+                    </view>
+                  </view>
+              </block>
+            </block>
+            <block wx:else >
+              <view class='no-items'>
+                没有选择商品
               </view>
-            </view>
-            <view class="details-address-phone">
-              <image src="./details-address.png" />
-              <view class="address">
-                黑龙江省哈尔滨市南岗区学府路74号
-              </view>
-              <image class="phone" src="./phone.png" bindtap="callphone" /> 
-            </view>
-            <view class="details-active">
-              <image src="./details-active.png" />
-              <view class="active">满100减10</view>
+            </block>
+          </view>
+
+        </view>
+      </swiper-item>
+
+      <swiper-item>
+        <view class="body-details">
+          <view class="details-introduction">
+            <image src="./details-home.png" />
+            <view class="introduction">
+              商家简介: hello餐厅成立于1998年2月份, hello餐厅成立于1998年2月份, hello餐厅成立于1998年2月份
             </view>
           </view>
-        </swiper-item>
+          <view class="details-address-phone">
+            <image src="./details-address.png" />
+            <view class="address">
+              黑龙江省哈尔滨市南岗区学府路74号
+            </view>
+            <image class="phone" src="./phone.png" bindtap="callphone" />
+          </view>
+          <view class="details-active">
+            <image src="./details-active.png" />
+            <view class="active">满100减10</view>
+          </view>
+        </view>
+      </swiper-item>
+
     </swiper>
 
   </view>

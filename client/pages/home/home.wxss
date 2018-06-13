@@ -3,6 +3,16 @@
   position: relative;
 }
 
+.mask {
+  position: fixed;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 1000;
+  touch-action: none;
+  background: rgba(0, 0, 0, .2);
+}
+
 /* .split {满减头上的横线
   height: 2rpx;
   width: 100%;
@@ -50,7 +60,6 @@
   justify-content: space-between;
   font-size: 30rpx;
   color: #ffffff;
-  border: 1rpx solid #fcfcfc;
   margin-top: 22rpx;
 }
 .head-active .full-cut{
@@ -235,8 +244,8 @@ margin-left: 8rpx;
 
 .body-pay {
   background:#576b95;/*待#db5a6b定*/
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 100000;
   bottom: 0;
   right: 0;
   left: 0;
@@ -253,13 +262,15 @@ margin-left: 8rpx;
   border: 8rpx solid rgba(51,51,51,0.5);  
   border-radius: 50%;
   background-color: #576b95;
+  position: relative;
+  z-index: 10;
  
 }
 .body-pay .pay-all {
-  margin-left:37rpx; 
   position: absolute;
   top: 50%;
   margin-top: -20rpx;
+  left: 153rpx;
 }
 .body-pay .pay-pay{
   display: inline-block;
@@ -280,8 +291,8 @@ margin-left: 8rpx;
 /* 商家卡片样式 */
 
 .body-details {
-  background: #f2f2f2;
   height: 100%;
+  padding-top: 20rpx;
   font-size: 32rpx;
   line-height: 50rpx;
 }
@@ -324,4 +335,51 @@ margin-left: 8rpx;
 
 .details-address-phone .address {
   margin-right: 68rpx;
+}
+
+
+
+/* 选择商品样式  */
+
+.pay-chosefood {
+  position: absolute;
+  bottom: 100rpx;
+  right: 0;
+  left: 0;
+  padding-bottom: 40rpx;
+  background: #576b95;
+  z-index: 1;
+}
+
+.cart-item {
+  padding: 10rpx 10rpx;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-item::after {
+  display: block;
+  border-top: 1px solid #999999;
+}
+.item-group, .item-group input, .item-group button {
+  display: inline-block;
+}
+
+.item-group input {
+  width: 40rpx;
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  color: #304161;
+}
+
+.no-items {
+  width: 100%;
+  text-align: center;
+}
+
+.pay-chosefood .item-name,
+.pay-chosefood .item-price,
+.pay-chosefood .item-group {
+  flex: 1
 }

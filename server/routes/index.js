@@ -32,4 +32,16 @@ router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
 
+// 商家登录
+router.get('/loginshop', controllers.loginShop)
+// 获取菜品
+router.get('/getfood', controllers.getmessage.getfood)
+// 支付
+router.get('/pay', controllers.pay)
+// 获得订单商品
+router.get('/getchosefood', controllers.getmessage.getChoseFood)
+
+router.get('/updatechosefood', controllers.updatechosefood)
+
+
 module.exports = router
