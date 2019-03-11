@@ -1,8 +1,8 @@
 {
   "pages":[
     "pages/home/home",
-    "pages/my/my",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/my/my"
   ],
   "window":{
     "backgroundColor":"#576b95",
