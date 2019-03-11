@@ -23,7 +23,7 @@ Page({
 
   },
 
-  // 用户登录示例
+  // 用户登录
   login: function () {
     if (this.data.logged) return
 

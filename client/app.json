@@ -2,16 +2,14 @@
   "pages":[
     "pages/home/home",
     "pages/my/my",
-    "pages/about/about",
-    "pages/index/index",
-    "pages/addCgi/addCgi"
+    "pages/about/about"
   ],
   "window":{
     "backgroundColor":"#576b95",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#576b95",
     "navigationBarTitleText": "点餐青蛙",
-    "navigationBarTextStyle":"light"
+    "navigationBarTextStyle":"white"
   },
   "tabBar": {
     "backgroundColor": "#ffffff",

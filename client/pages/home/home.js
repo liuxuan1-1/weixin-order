@@ -168,7 +168,9 @@ Page({
         mask: true,
       })
       const user = wx.getStorageSync('userInfo');
+      // 内存中存数据
 
+      //请求接口
       wx.request({
         url: 'https://9vagitvj.qcloud.la/weapp/pay',
         method: 'GET',
@@ -207,65 +209,67 @@ Page({
     var that = this
 
     // 调用登录接口
-    qcloud.login({
-      success(result) {
-        if (result) {
-          util.showSuccess('登录成功')
-          that.setData({
-            userInfo: result,
-            logged: true
-          })
-          wx.setStorage({
-            key: 'userInfo',
-            data: result,
-          })
+    // qcloud.login({
+    //   success(result) {
+    //     if (result) {
+    //       util.showSuccess('登录成功')
+    //       that.setData({
+    //         userInfo: result,
+    //         logged: true
+    //       })
 
-          wx.setStorage({
-            key: 'logged',
-            data: true,
-          })
-        } else {
-          // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
-          qcloud.request({
-            url: config.service.requestUrl,
-            login: true,
-            success(result) {
-              util.showSuccess('登录成功')
-              that.setData({
-                userInfo: result.data.data,
-                logged: true
-              })
-              wx.setStorage({
-                key: 'userInfo',
-                data: result.data.data,
-              })
-              wx.setStorage({
-                key: 'logged',
-                data: true,
-              })
-            },
+    //       //设置一个值
+    //       wx.setStorage({
+    //         key: 'userInfo',
+    //         data: result,
+    //       })
 
-            fail(error) {
-              util.showModel('请求失败', error)
-              console.log('request fail', error)
-              wx.setStorage({
-                key: 'logged',
-                data: false,
-              })
-            }
-          })
-        }
-      },
+    //       wx.setStorage({
+    //         key: 'logged',
+    //         data: true,
+    //       })
+    //     } else {
+    //       // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
+    //       qcloud.request({
+    //         url: config.service.requestUrl,
+    //         login: true,
+    //         success(result) {
+    //           util.showSuccess('登录成功')
+    //           that.setData({
+    //             userInfo: result.data.data,
+    //             logged: true
+    //           })
+    //           wx.setStorage({
+    //             key: 'userInfo',
+    //             data: result.data.data,
+    //           })
+    //           wx.setStorage({
+    //             key: 'logged',
+    //             data: true,
+    //           })
+    //         },
 
-      fail(error) {
-        util.showModel('登录失败', '请重新登录')
-        console.log('登录失败', error)
-        wx.setStorage({
-          key: 'logged',
-          data: false,
-        })
-      }
-    })
+    //         fail(error) {
+    //           util.showModel('请求失败', error)
+    //           console.log('request fail', error)
+    //           wx.setStorage({
+    //             key: 'logged',
+    //             data: false,
+    //           })
+    //         }
+    //       })
+    //     }
+    //   },
+
+    //   fail(error) {
+    //     util.showModel('登录失败', '请重新登录')
+    //     console.log('登录失败', error)
+    //     wx.setStorage({
+    //       key: 'logged',
+    //       data: false,
+    //     })
+    //   }
+    // })
 
     wx.request({
       url: 'https://9vagitvj.qcloud.la/weapp/getfood',
