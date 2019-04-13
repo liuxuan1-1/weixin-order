@@ -1,23 +1,7 @@
 <!--pages/my/my.wxml-->
 <view class="container">
   <view class="userinfo">
-    <!-- <image 
-      class="userinfo-avatar" 
-      src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}"
-      background-size="cover" />
-    <button class="userinfo-login" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击登录</button>
-    <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text> -->
     欢迎光临
   </view>
-    <!-- <view class="list">
-      <view class="usermotto" data-type='lists' wx:if="{{logged}}">
-         <text class="user-motto">订单列表</text>
-         <text>></text>
-      </view>
-      <view class="usermotto" data-type='article' bindtap='toAboutMyPage'>
-         <text class="user-motto">关于我们</text>
-         <text>></text>
-      </view>
-    </view> -->
 </view>
 

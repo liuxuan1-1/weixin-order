@@ -10,63 +10,63 @@ Page({
 			1: {
 				id: 1,
 				name: '果盘3',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 1014,
 				price: 120
 			},
 			2: {
 				id: 2,
 				name: '龙舌兰',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 1029,
 				price: 100
 			},
 			3: {
 				id: 3,
 				name: '方便面',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 1030,
 				price: 5
 			},
 			4: {
 				id: 4,
 				name: '粉丝',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 1059,
 				price: 5
 			},
 			5: {
 				id: 5,
 				name: '果盘1',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 1029,
 				price: 130
 			},
 			6: {
 				id: 6,
 				name: '果盘2',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 1064,
 				price: 150
 			},
 			7: {
 				id: 7,
 				name: '锐澳',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 814,
 				price: 200
 			},
 			8: {
 				id: 8,
 				name: '尊尼获加',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 124,
 				price: 220
 			},
 			9: {
 				id: 9,
 				name: '芝士华',
-				pic: 'http://img1.gtimg.com/health/pics/hv1/138/79/2068/134491983.jpg',
+				pic: '../../res/img/item.jpg',
 				sold: 102,
 				price: 300
 			}

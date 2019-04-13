@@ -26,67 +26,6 @@ Page({
     if (this.data.logged) return
 
     util.showBusy('正在登录')
-    var that = this
-
-    // 调用登录接口
-    // qcloud.login({
-    //   success(result) {
-    //     if (result) {
-    //       util.showSuccess('登录成功');
-    //       that.setData({
-    //         userInfo: result,
-    //         logged: true
-    //       })
-    //       wx.setStorage({
-    //         key: 'logged',
-    //         data: true,
-    //       })
-    //       wx.setStorage({
-    //         key: 'userInfo',
-    //         data: result,
-    //       })
-    //     } else {
-    //       // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
-    //       qcloud.request({
-    //         url: config.service.requestUrl,
-    //         login: true,
-    //         success(result) {
-    //           util.showSuccess('登录成功')
-    //           that.setData({
-    //             userInfo: result.data.data,
-    //             logged: true
-    //           })
-    //           wx.setStorage({
-    //             key: 'logged',
-    //             data: true,
-    //           })
-    //           wx.setStorage({
-    //             key: 'userInfo',
-    //             data: result.data.data,
-    //           })
-    //         },
-
-    //         fail(error) {
-    //           util.showModel('请求失败', error)
-    //           wx.setStorage({
-    //             key: 'logged',
-    //             data: false,
-    //           })
-    //           console.log('request fail', error)
-    //         }
-    //       })
-    //     }
-    //   },
-
-    //   fail(error) {
-    //     util.showModel('登录失败', error)
-    //     wx.setStorage({
-    //       key: 'logged',
-    //       data: false,
-    //     })
-    //     console.log('登录失败', error)
-    //   }
-    // })
   },
 
   bindGetUserInfo: function (e) {
@@ -149,28 +88,6 @@ Page({
           encryptedData: options.encryptedData,
           iv: options.iv,
         }
-        // qcloud.requestLogin({
-        //   loginParams, success() {
-        //     util.showSuccess('登录成功');
-
-        //     that.setData({
-        //       userInfo: options.userInfo,
-        //       logged: true
-        //     })
-        //     wx.setStorage({
-        //       key: 'logged',
-        //       data: true,
-        //     })
-        //     wx.setStorage({
-        //       key: 'userInfo',
-        //       data: options.userInfo,
-        //     })
-        //   },
-        //   fail(error) {
-        //     util.showModel('登录失败', error)
-        //     console.log('登录失败', error)
-        //   }
-        // });
       },
       fail: function (loginError) {
         util.showModel('登录失败', loginError)

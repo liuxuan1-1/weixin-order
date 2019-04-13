@@ -1,14 +1,6 @@
 <import src="../home/home.wxml"/>
 <view>
   <view class="table">
-    <!-- <view class="table-num">桌号:
-      <text class="tabnum">{{tables[tableIndex]}}</text>
-    </view> -->
-    
-    <!--<picker bindchange="bindPickerChange" value="{{tableIndex}}" range="{{tables}}">
-      <view class="table-input">{{tables[tableIndex]}}</view>
-      <span class="table-arrow">﹀</span>
-    </picker>-->
 
   </view>
 
@@ -22,10 +14,7 @@
     
     <view class="list">
 			<view class="item" wx:for="{{orderList}}"  wx:key="orderList">
-				<!-- <view class="name ellipsis">{{orderList.name}}</view>
-				<view class="reduce" data-id="{{id}}" bindtap="tapReduceCart">-</view>
-				<view class="num">1</view>
-				<view class="add" data-id="{{id}}" bindtap="tapAddCart">+</view> -->
+
 			</view>
 		</view>
   </view>

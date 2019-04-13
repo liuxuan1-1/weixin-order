@@ -5,7 +5,6 @@ Page({
     total: 0, //总价格
     toastHidden: true,
     toastTxt: "",
-    tables: ["1号", "2号", "3号", "4号", "5号", "6号", "7号", "8号", "9号"], //桌号
     tableIndex: 0,
     comments: "",
   },
@@ -35,7 +34,6 @@ Page({
 
    var  orderList = wx.getStorageSync('orderList');
    var  list=orderList.list;
-   console.log(list)
    //object 转 array
     var order = JSON.parse(options.order);
     var t_order = [];
@@ -106,7 +104,6 @@ Page({
   },
 
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       tableIndex: e.detail.value
     })
