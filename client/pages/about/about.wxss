@@ -1,7 +1,0 @@
-/* pages/about/about.wxss */
-text {
-  font-size: 100rpx;
-  width: 100%;
-  display: block;
-  text-align: center;
-}

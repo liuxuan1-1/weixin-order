@@ -1,118 +1,58 @@
-<!--pages/homes/homes.wxml-->
+
 <view class="container">
-  <!--商家头部展示-->
-  <view class="res-head">
-    <view class="head-mess">
-      <image class="head-headimg" src="./home.jpg" />
-      <text class="head-name">Hello餐厅欢迎您</text>
-    </view>
-    <view class="split" />
-    <view class="head-active">
-      <text>满100减10</text>
-    </view>
-  </view>
-  <!--点餐界面-->
-  <view class="res-body">
-    <view class="body-head" bindtap="changeSwipeHead">
-      <text data-index='0' class="{{swipeIndex === 0 ? 'cur' : ''}}">点菜</text>
-      <text data-index='1' class="{{swipeIndex === 1 ? 'cur' : ''}}">商家</text>
-    </view>
-    <swiper indicator-dots="{{false}}" autoplay="{{false}}" bindchange="changeSwipe" current="{{swipeIndex}}">
-
-      <swiper-item>
-        <view class="body-order">
-
-          <scroll-view class="body-category" scroll-Y="{{true}}" style="height:740rpx;">
-            <view class="category-items" bindtap='handlerClickFoodType'>
-              <block wx:for="{{foodType}}" wx:key="item.id">
-                <text class="{{foodTypeCur == index ? 'cur' : ''}}" data-index="{{item.id}}">{{item.typename}}</text>
-                <view class="dash-split" />
-              </block>
-            </view>
-          </scroll-view>
-
-          <scroll-view class="body-items" style="height:740rpx;" scroll-Y="{{true}}">
-            <view class="items-head">
-              <text class="color-orange">|</text>
-              <text>{{foodType[foodTypeCur].typename}}</text>
-            </view>
-            <block wx:for="{{data[foodTypeCur].food}}" wx:key="{{index}}">
-              <view class="items-wrapper">
-                <view class="items-left">
-                  <image src="./chicken.jpg" />
-                  <view class="items-message">
-                    <text class="message-title">{{item.foodname}}</text>
-                    <text class="message-description">{{item.description}}</text>
-                    <text class="message-price">
-                      <text class="price-sale">¥{{item.price}}</text>
-                    <text class="price-origin">¥{{item.originprice}}</text>
-                    </text>
-                    <!-- <text class="message-discount">2.5折</text> -->
-                  </view>
-                </view>
-                <view class="items-right" bindtap='handlerClickChoseFood' data-foodid="{{item.foodid}}">
-                  <image src="./plus.png" />
-                </view>
-              </view>
-            </block>
-
-          </scroll-view>
-        </view>
-        <view class='mask' hidden="{{!showcart}}"></view>
-
-        <view class="body-pay">
-
-           <image class="pay-cart" src="./cart.png" bindtap='handlerShowCart' />
-          <text class="pay-all">¥{{totalPrice}}</text>
-          <text class="pay-pay" bindtap='handlerPay'>结算</text>
-          <view class='pay-chosefood' hidden='{{!showcart}}'>
-            <block wx:if="{{choseFood.length !== 0}}">
-
-              <block wx:for="{{choseFood}}" wx:key="{{item.foodid}}">
-                <view class='cart-item' data-index="{{item.foodid}}">
-                    <text class='item-name'>{{item.name}}</text>
-                    <text class='item-price'>{{item.price}}元</text>
-                    <view class='item-group'>
-                      <button size="mini" bindtap='handlerItemPlus' data-index="{{item.foodid}}">+</button>
-                      <input class='item-counts' data-index="{{item.foodid}}" type="number" value="1" maxlength="2" value='{{item.nums}}'   bindinput="handlerInputChange" />
-                      <button size='mini' bindtap='handlerItemSubtract' data-index="{{item.foodid}}">-</button>
-                    </view>
-                  </view>
-              </block>
-            </block>
-            <block wx:else >
-              <view class='no-items'>
-                没有选择商品
-              </view>
-            </block>
-          </view>
-
-        </view>
-      </swiper-item>
-
-      <swiper-item>
-        <view class="body-details">
-          <view class="details-introduction">
-            <image src="./details-home.png" />
-            <view class="introduction">
-              商家简介: hello餐厅成立于1998年2月份, hello餐厅成立于1998年2月份, hello餐厅成立于1998年2月份
-            </view>
-          </view>
-          <view class="details-address-phone">
-            <image src="./details-address.png" />
-            <view class="address">
-              黑龙江省哈尔滨市南岗区学府路74号
-            </view>
-            <image class="phone" src="./phone.png" bindtap="callphone" />
-          </view>
-          <view class="details-active">
-            <image src="./details-active.png" />
-            <view class="active">满100减10</view>
-          </view>
-        </view>
-      </swiper-item>
-
-    </swiper>
-
-  </view>
+	<view class="header {{scrollDown?'hidden':''}}">
+		<image class="logo" src="../../res/img/shop.png"/>
+		<view class="name ellipsis">{{shop.name}}</view>
+		<view class="welcome ellipsis">公告：欢迎光临{{shop.name}}！</view>
+		<view class="line"></view>
+		<view class="desc">{{shop.desc}}</view>
+	</view>
+	<view class="content-container">
+		<scroll-view class="classify-container" scroll-y="true">
+			<view class="classify {{classifySeleted==classify.id?'active':''}}" wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" data-id="{{classify.id}}" bindtap="tapClassify">
+				<view class="name">{{classify.classifyName}}</view>
+			</view>
+		</scroll-view>
+		<scroll-view class="goods-container" scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll">
+			<view wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" id="{{classify.id}}">
+				<view class="title">{{classify.classifyName}}</view>
+				<view class="goods" wx:for="{{classify.goods}}" wx:for-item="id" wx:key="*this">
+					<image class="pic" src="{{goods[id].pic}}"></image>
+					<view class="name ellipsis">{{goods[id].name}}</view>
+					<view class="sold">月售{{goods[id].sold}}</view>
+					<view class="price">￥{{goods[id].price}}</view>
+					<view class="addCart" bindtap="tapAddCart" data-id="{{id}}">
+						<image src="../../res/img/plus.png"></image>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<view class="cart-detail" hidden="{{!showCartDetail||!cart.count}}">
+		<view class="mask" bindtap="hideCartDetail"></view>
+		
+		<view class="list">
+			<view class="item" wx:for="{{cart.list}}" wx:for-index="id" wx:for-item="num" wx:key="id">
+				<view class="name ellipsis">{{goods[id].name}}</view>
+				<view class="total">￥{{goods[id].price*cart.list[id]}}</view>
+				<view class="reduce" data-id="{{id}}" bindtap="tapReduceCart">-</view>
+				<view class="num">{{num}}</view>
+				<view class="add" data-id="{{id}}" bindtap="tapAddCart">+</view>
+			</view>
+		</view>
+		
+	</view>
+	<view class="cart">
+		<view class="data" bindtap="showCartDetail">
+			<view class="icon">
+				<image src="../../res/img/cart.png"></image>
+				<view class="count">{{cart.count}}</view>
+			</view>
+			<view class="total">￥{{cart.total}}</view>
+		</view>
+		<form bindsubmit="submit" report-submit="true">
+			<!--<view formType="submit" class="submit">去结算</view>-->
+			<button class="yellow {{cart.count?'':'disabled'}}" formType="submit" disabled="{{!cart.count}}">点单</button>
+		</form>
+	</view>
 </view>
